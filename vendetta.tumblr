@@ -56,11 +56,18 @@ Added customization by Eohiie (http://eohiie.ca/)
 <meta name="if:Tile Sidebar" content="1"/>
  
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'/>
-</head>
- 
+
 <script type="text/javascript"
 src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
- 
+
+<script type="text/javascript" src="http://static.tumblr.com/fgfmpgh/Qqfkzalyi/jquery.scroll.pack.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/fgfmpgh/7xukzalz8/jquery.easing.js"></script>
+<script type="text/javascript">
+$(function() {
+$("#toTop").scrollToTop({speed:500,start:500});
+});
+</script>
+
 <script type="text/javascript">
     window.onload = function(){
   var elements = document.getElementsByClassName("toptext")
@@ -110,6 +117,17 @@ iframe#tumblr_controls:hover{-webkit-transition: opacity 0.7s linear;opacity: 1;
 @font-face {
     font-family: custom;
     src: local(custom), url('{text:Title Font URL}') format('opentype');
+}
+
+#toTop {
+position:fixed;
+bottom:40px;
+right:40px;
+cursor:pointer;
+background:url(http://static.tumblr.com/fgfmpgh/M3zkzagj7/totop.png) no-repeat;
+text-indent:-9999px;
+width:51px;
+height:51px;
 }
  
 body {
@@ -483,9 +501,11 @@ display:block;
 <style type="text/css">{CustomCSS}</style>
 </head>
 <body>
- 
+
+<a href="#" id="toTop">^ Scroll to Top </a>
+
 <div id="sidebar">
- 
+
 {block:IfNotAltTitle}
 <a href="/"><div class="toptext">{Title}</div></a>
 {/block:IfNotAltTitle}
@@ -495,10 +515,11 @@ display:block;
 {/block:IfAltTitle}
  
 {block:IfShowIcon}
-<div class="icawn"><img src="{PortraitURL-40}"></div>
+<div class="icawn"><img src="{PortraitURL-40}" alt=""/></div>
 <div class="ioverlay"><a href="/">{text:Icon Overlay}</a></div>
 {/block:IfShowIcon}
- 
+
+
 <div class="description">
 {Description}
  
@@ -507,22 +528,22 @@ display:block;
 {block:AskEnabled}<a href="/ask">{AskLabel}</a><br/>{/block:AskEnabled}
 {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a><br/>{/block:SubmissionsEnabled}
 <a href="/archive">The Grand Archive</a><br/>
-{block:IfLink1}<a href="{text:Link1}">{text:Link1 title}</a></br>{/block:IfLink1}
+{block:IfLink1}<a href="{text:Link1}">{text:Link1 title}</a><br/>{/block:IfLink1}
 {block:IfLink2}<a href="{text:Link2}">{text:Link2 title}</a><br/>{/block:IfLink2}
 {block:IfLink3}
-<a href="{text:Link3}">{text:Link3 title}</a></br>
+<a href="{text:Link3}">{text:Link3 title}</a><br/>
 {/block:IfLink3}
 {block:IfLink4}
 <a href="{text:Link4}">{text:Link4 title}</a><br/>
 {/block:IfLink4}
 <br/>
 <a href="http://velocitythemes.tumblr.com" target="_blank">Theme built by VelocityThemes</a><br/>
-<a href="http://pastebin.com/PaGkqWWi" target="_blank">Theme modified by Eohiie</a>
+<a href="https://github.com/Eohiie/Tumblr-Themes/blob/master/vendetta.tumblr" target="_blank">Theme modified by Eohiie</a>
  
 {block:IfNotEndlessScroll}
 {block:Pagination}
-{block:PreviousPage}<a href="{PreviousPage}">?</a>{/block:PreviousPage}
-{block:NextPage}<a href="{NextPage}">?</a>{/block:NextPage}
+{block:PreviousPage}<a href="{PreviousPage}">‚Üê</a>{/block:PreviousPage}
+{block:NextPage}<a href="{NextPage}">‚Üí</a>{/block:NextPage}
 {/block:Pagination}
 {/block:IfNotEndlessScroll}
 </p></div>
@@ -537,18 +558,10 @@ display:block;
  
 {block:Photo}
  
-<div>{block:IndexPage}{LinkOpenTag}<a href="{permalink}"><img
-src="{PhotoURL-500}"
-{block:If500pxPosts}width="500px"{/block:If500pxPosts}
-{block:If400pxPosts}width="400px"{/block:If400pxPosts}
-{block:If250pxPosts}width="250px"{/block:If250pxPosts}
- alt="{PhotoAlt}"/></a>{LinkCloseTag}{/block:IndexPage}
+<div>{block:IndexPage}{LinkOpenTag}<a href="{permalink}"><img src="{PhotoURL-500}" {block:If500pxPosts}width="500px"{/block:If500pxPosts} {block:If400pxPosts}width="400px"{/block:If400pxPosts} {block:If250pxPosts}width="250px"{/block:If250pxPosts} alt="{PhotoAlt}"/></a>{LinkCloseTag}{/block:IndexPage}
  
 {block:PermalinkPage}
-{LinkOpenTag}<img
-src="{PhotoURL-500}"
-{block:If500pxPosts}width="500px"{/block:If500pxPosts}
- alt="{PhotoAlt}"/>{LinkCloseTag}
+{LinkOpenTag}<img src="{PhotoURL-500}" {block:If500pxPosts}width="500px"{/block:If500pxPosts} alt="{PhotoAlt}"/>{LinkCloseTag}
 {/block:PermalinkPage}</div>
  
     <div class="postdesc">
@@ -584,7 +597,7 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 {block:Chat}
  
 {block:Title}
-<a href="{Permalink}"><center><span class="title">ó {Title}</span></center></a><p><br /></p>
+<a href="{Permalink}"><center><span class="title">‚Äî {Title}</span></center></a><p><br /></p>
 {/block:Title}<div>
 {block:Lines}<div>
 {block:Label}<div style="background-color:#f4f4f4;margin-bottom:2px;">
@@ -612,7 +625,7 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 {block:Text}
  
 {block:Title}
-<a href="{Permalink}"><div class="title">ó {Title}</div></a>
+<a href="{Permalink}"><div class="title">‚Äî {Title}</div></a>
 {/block:Title}
 <div class="postdesc">{Body}</div>
  
@@ -796,7 +809,7 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
  
   {block:Answer}
  
-<div style="float:right;"><span class="title" style="text-align:right; font-style:italic;font-family:Calibri;font-size:13px;color:{color:text};"><b>{Asker}</b> asked: ì{Question}î</span></div></center>
+<div style="float:right;"><span class="title" style="text-align:right; font-style:italic;font-family:Calibri;font-size:13px;color:{color:text};"><b>{Asker}</b> asked: ‚Äú{Question}‚Äù</span></div></center>
 <p><br /><div><span class="postdesc" style="font-size:11px; font-family:Calibri;">{Answer}</span></div>
  
 {block:IndexPage}
