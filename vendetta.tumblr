@@ -106,9 +106,23 @@ $content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);
  
 <style type="text/css">
  
-iframe#tumblr_controls {right:3px !important; position: fixed !important;-webkit-transition: opacity 0.7s linear;opacity: 0.2;-webkit-transition: all 0.8s ease-out;-moz-transition: all 0.8s ease-out;transition: all 0.8s ease-out;}
+iframe#tumblr_controls {
+  right:3px !important;
+  position: fixed !important;
+  -webkit-transition: opacity 0.7s linear;
+  opacity: 0.2;
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+  }
  
-iframe#tumblr_controls:hover{-webkit-transition: opacity 0.7s linear;opacity: 1;-webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
+iframe#tumblr_controls:hover{
+  -webkit-transition: opacity 0.7s linear;
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  }
  
  
 ::-webkit-scrollbar-thumb:vertical {background-color:{color:Scroll};height:50px;}
