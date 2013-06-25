@@ -552,7 +552,7 @@ display:block;
 {/block:IfLink4}
 <br/>
 <a href="http://velocitythemes.tumblr.com" target="_blank">Theme built by VelocityThemes</a><br/>
-<a href="https://github.com/Eohiie/Tumblr-Themes/blob/master/vendetta.tumblr" target="_blank">Theme modified by Eohiie</a>
+<a href="https://github.com/Eohiie/Tumblr-Themes/blob/master/vendetta/vendetta.tumblr" target="_blank">Theme modified by Eohiie</a>
  
 {block:IfNotEndlessScroll}
 {block:Pagination}
