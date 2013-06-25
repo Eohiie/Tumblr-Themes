@@ -539,16 +539,15 @@ display:block;
  
 <!--navigation-->
 <div class="nav">
-{block:AskEnabled}<a href="/ask">{AskLabel}</a><br/>{/block:AskEnabled}
-{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a><br/>{/block:SubmissionsEnabled}
-<a href="/archive">The Grand Archive</a><br/>
-{block:IfLink1}<a href="{text:Link1}">{text:Link1 title}</a><br/>{/block:IfLink1}
-{block:IfLink2}<a href="{text:Link2}">{text:Link2 title}</a><br/>{/block:IfLink2}
+{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+<a href="/archive">Archive</a>
+{block:IfLink1}<a href="{text:Link1}">{text:Link1 title}</a>{/block:IfLink1}
+{block:IfLink2}<a href="{text:Link2}">{text:Link2 title}</a>{/block:IfLink2}
 {block:IfLink3}
-<a href="{text:Link3}">{text:Link3 title}</a><br/>
-{/block:IfLink3}
+<a href="{text:Link3}">{text:Link3 title}</a>{/block:IfLink3}
 {block:IfLink4}
-<a href="{text:Link4}">{text:Link4 title}</a><br/>
+<a href="{text:Link4}">{text:Link4 title}</a>
 {/block:IfLink4}
 <br/>
 <a href="http://velocitythemes.tumblr.com" target="_blank">Theme built by VelocityThemes</a><br/>
