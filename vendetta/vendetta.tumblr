@@ -44,6 +44,7 @@ Added customization by Eohiie (http://eohiie.ca/)
 <meta name="text:Alt Title" content="" />
 <meta name="text:Title Font URL" content="" />
 <meta name="text:Title Font Size" content="20px" />
+<meta name="text:Music Player Playlist" content="http://www.youtube.com/playlist?list=PLEayomVVqrS32OCS6tpHzlWx3dlmYDWYF" />
  
 <meta name="if:500px posts" content="1"/>
 <meta name="if:400px posts" content="0"/>
@@ -176,7 +177,7 @@ height:100%;
 top:0px;
 left:0px;
 width:300px;
-z-index:100000;
+z-index:90000;
 background: {color:SidebarBG} url('{image:SidebarBG}');
 {block:IfNotTileSidebar}background-size:auto 100%;{/block:IfNotTileSidebar}
 }    
@@ -515,6 +516,12 @@ display:block;
 <style type="text/css">{CustomCSS}</style>
 </head>
 <body>
+{block:IfMusicPlayerPlaylist}
+<!-- SCM Music Player http://scmplayer.net -->
+<script type="text/javascript" src="http://scmplayer.net/script.js" 
+data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':false,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':'{text:Music Player Playlist}'}" ></script>
+<!-- SCM Music Player script end -->
+{/block:IfMusicPlayerPlaylist}
 
 <a href="#" id="toTop">^ Scroll to Top </a>
 
@@ -866,9 +873,7 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 </div>
 {/block:Pagination}
 {/block:IndexPage}
- 
-<div style="position:fixed; right:5px; bottom:5px; font-tamily:baskerville;"><a href="http://velocitythemes.tumblr.com/">VT</a></div>
- 
+
 </body>
  
 </html>
