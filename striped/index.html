@@ -4,6 +4,8 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
+
 <html>
 	<head>
 		<title>Striped by HTML5 UP</title>
@@ -25,10 +27,6 @@
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
 	</head>
-	<!--
-		Note: Set the body element's class to "left-sidebar" to position the sidebar on the left.
-		Set it to "right-sidebar" to, you guessed it, position it on the right.
-	-->
 	<body class="left-sidebar">
 
 		<!-- Wrapper -->
@@ -59,15 +57,8 @@
 									</div>
 									<a href="#" class="image image-full"><img src="images/n33-robot-invader.jpg" alt="" /></a>
 									<p>
-										<strong>Hello!</strong> You're looking at <a href="http://html5up.net/striped/">Striped</a>, a fully responsive HTML5 site template designed by <a href="http://n33.co/">AJ</a>
-										for <a href="http://html5up.net/">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-										repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-									</p>
-									<p>
-										Striped is released for free under the <a href="http://html5up.net/license/">Creative Commons Attribution license</a> so feel free to use it for personal projects
-										or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net/">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-										<a href="http://html5up.net/">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/n33co">Twitter</a> for new releases and updates.
-									</p>
+										This is striped.
+                  </p>
 								</article>
 						
 							<!-- Post -->
@@ -101,23 +92,33 @@
 					
 						<!-- Logo -->
 							<div id="logo">
-								<h1>Welcome to Insanity</h1>
+								<a href=""><h1>{Title}</h1></a>
 							</div>
+              
+              
+						<!-- Text -->
+							<section class="is-text-style1">
+								<div class="inner">
+									<p>
+										{MetaDescription}
+									</p>
+								</div>
+							</section>
 					
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current_page_item"><a href="#">Latest Post</a></li>
-									<li><a href="#">Archives</a></li>
-									<li><a href="#">About Me</a></li>
-									<li><a href="#">Contact Me</a></li>
+									{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+									{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+									<li><a href="/archive">Archive</a></li>
+                  <li><a href="#">[Page Title]</a></li>
 								</ul>
 							</nav>
 
 						<!-- Copyright -->
 							<div id="copyright">
 								<p>
-									&copy; 2013 Eohiie<br />
+									&copy; {CopyrightYears} {Title}<br />
 									Source Code<br />
                   Designed by <a href="http://html5up.net">HTML5UP</a>
 								</p>
