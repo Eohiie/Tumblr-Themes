@@ -1,0 +1,396 @@
+<html>
+<head><script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+ 
+<!-- exotic-05 by cigerettes.tumblr.com
+download @ exoticlayouts.tumblr.com -->
+<meta name="viewport" content="width=1120,user-scalable=no" />
+<meta name="color:background" content="#ffffff">
+<meta name="color:text" content="#000000" />
+<meta name="color:link" content="#000000" />
+<meta name="color:active" content="#000000" />
+<meta name="color:hover" content="#eeeeee" />
+<meta name="color:post border" content="#000000" />
+<meta name="color:blockquote" content="#000000" />
+<meta name="color:scrollbar" content="#000000" />
+<meta name="color:scrollbar bg" content="#ffffff" />
+<meta name="if:inverted images on hover" content="1" />
+<meta name="if:custom font" content="1" />
+<meta name="if:Images New Tab" content="1" />
+<meta name="image:background" content="" />
+ 
+<style type="text/css">
+ 
+body {
+padding: 0px;
+margin: 0px;
+color:{color:text};
+background-color: {color:Background};
+background-image:url({image:Background});
+background-attachment: fixed;
+background-size: ;
+font-family: georgia;
+font-size: 9px;
+line-height:12px;
+color:{color:text};
+}
+ 
+::-webkit-scrollbar {
+width: 9px;
+height: 9px;
+background: {color:scrollbar bg};
+}
+ 
+::-webkit-scrollbar-thumb {
+background-color:#000;
+border: 1px solid {color:scrollbar};
+}
+ 
+a:link, a:visited{
+color: {color:link};
+text-decoration: none;
+}
+ 
+a:active{
+color:{color:active};
+}
+ 
+a:hover{
+color:{color:Hover};
+}
+ 
+p {
+margin:2px;
+margin-top:10px;
+}
+ 
+blockquote {
+border-left: 3px solid;
+padding-left: 3px;
+margin-left: 5px;
+font-style: italic;
+color:{color:blockquote};
+}
+ 
+blockquote img{
+width:150px;
+height:auto;
+{block:permalinkpage}
+width:480px;
+{/block:permalinkpage}
+}
+ 
+.entry {
+margin:8px;
+padding:5px;
+float:left;
+background-color: transparent;
+font-family: georgia;
+font-size: 9px;
+line-height:12px;
+{block:IndexPage}
+width:250px;
+{/block:IndexPage}
+{block:PermalinkPage}
+width:500px;
+margin-top:30px;
+{/block:PermalinkPage}
+}
+ 
+ 
+{block:ifinvertedimagesonhover}
+.entry:hover img{
+-webkit-filter: invert(0%);
+}
+.entry:hover img:hover{
+-webkit-filter: invert(100%);
+z-index: -9999999999999999999999999;
+}
+{/block:ifinvertedimagesonhover}
+.entry:hover #perma img{
+}    
+ 
+#posts {
+position:relative;
+margin-top:0px;
+padding-bottom:7px;
+{block:IndexPage}
+width: 90%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+padding: 10px;
+{/block:IndexPage}
+{block:PermalinkPage}
+width: 500px;
+margin-left: 70px;
+margin-top:0px;
+{/block:PermalinkPage}
+}
+ 
+.caption {
+padding:10px;
+width:400px;
+position:relative;
+margin-left:550px;
+margin-top:0px;
+background:#fff;
+border:1px solid {color:post border};
+height:500px;
+overflow:scroll;
+}
+ 
+.title{
+font-size:larger;
+}
+ 
+@font-face {
+  font-family: 'Disco';
+  src: url('http://static.tumblr.com/hcdtsmj/qM2miygia/remark.ttf')}
+ 
+.blogtitle{
+text-transform:uppercase;
+letter-spacing:5px;
+{block:ifcustomfont}
+font-family:'disco';
+{/block:ifcustomfont}
+font-size:7em;
+margin-top:25px;
+text-align:center;
+line-height:100%;
+}
+ 
+.links{
+margin-top:-10px;
+text-align:center;
+}            
+ 
+.links a{
+-webkit-transition: all .5s ease;
+-moz-transition: all .5s ease;
+-o-transition: all .5s ease;
+transition: all .5s ease;
+margin-left:10px;
+margin-right:10px;
+text-transform:uppercase;
+font-size:10px;
+letter-spacing:1px;
+padding-left:15px;
+padding-right:15px;
+padding-bottom:1px;
+line-height:20px;
+border-left:1px solid #ddd;
+border-right:1px solid #ddd;
+border-top:1px solid transparent;
+border-bottom:1px solid transparent;
+background:{color:background};
+}
+ 
+.desc{
+font-size:1.5em;
+line-height:110%;
+padding-bottom:25px;
+border-bottom:1px solid #ddd;
+}
+ 
+ 
+{CustomCSS}
+</style>
+{block:IndexPage}
+<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/iBElrgjim/jquerymasonry.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/Qyblrgjfn/jqueryinfintescroll.js"></script>
+ 
+<script type="text/javascript">
+$(window).load(function () {
+var $content = $('#posts');
+$content.masonry({itemSelector: '.entry'}),
+$content.infinitescroll({
+navSelector : '#pagination',
+nextSelector : '#pagination a#nextPage',
+itemSelector : '.entry',
+loading: {
+finishedMsg: '',
+img: 'http://static.tumblr.com/dbek3sy/pX1lrx8xv/ajax-loader.gif'
+},
+bufferPx : 600,
+debug : false,
+},
+// call masonry as a callback.
+function( newElements ) {
+var $newElems = $( newElements );
+$newElems.hide();
+// ensure that images load before adding to masonry layout
+$newElems.imagesLoaded(function(){
+$content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);} );
+ 
+ 
+});
+});
+});
+</script>
+{/block:IndexPage}
+ 
+<title>{title}</title>
+ 
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+<meta name="viewport" content="width=820" />
+ 
+</style>
+ 
+</head>
+ 
+<body>
+<br><br>
+ 
+<div class="blogtitle"><a href="/">{title}</a></div>
+<br><br><center>
+<div class="desc">{description}</div></center>
+ 
+<div class="links">
+{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+{block:HasPages}
+{block:Pages}
+&nbsp;<a href="{URL}">{Label}</a>
+{/block:Pages}
+{/block:HasPages}
+<a href="http://cigerettes.tumblr.com/" target="_blank">Theme</a></div>
+ 
+<div id="posts">
+ 
+{block:Posts}
+<div class="entry">
+ 
+{block:Text}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};">{/block:IndexPage}{block:Title}<span class="title"><a href="{permalink}">{Title}</a></span>{/block:Title}<span class="entrytext">{Body}</span>
+{/block:Text}
+ 
+{block:Link}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+<a href="{URL}" class="title">? {Name}</a>
+{block:Description}{Description}{/block:Description}{block:IndexPage}
+{/block:IndexPage}
+{/block:Link}
+ 
+ 
+{block:Photo}
+{block:IndexPage}
+<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="image/{PostID}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a> 
+</legend>
+{/block:IndexPage}
+{block:IndexPage}{LinkOpenTag}<div class="photo"><a href="image/{PostID}" {block:ifImagesNewTab}target="_blank"{/block:ifImagesNewTab}><img class="photo" src="{PhotoURL-400}" alt="{PhotoAlt}" width="250px;"/></a></div>{LinkCloseTag}{/block:IndexPage}
+{block:PermalinkPage}<a href="{Permalink}"><img class="photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" style="position:fixed; height:auto;" width="450px"/></a>{/block:PermalinkPage}
+{/block:Photo}
+ 
+{block:Photoset}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:IndexPage}<center>{Photoset-250}</center>{/block:IndexPage}
+<center>{block:PermalinkPage}<div style="position:fixed;width:517px;max-height:520px;overflow:scroll;">{Photoset-500}</div>{/block:PermalinkPage}</center>
+{/block:Photoset}
+ 
+{block:Quote}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+                        <i>"{Quote}"</i>
+                        {block:Source}
+                            <div align="right">— {Source}</div>
+                        {/block:Source}
+ 
+                {/block:Quote}
+ 
+ 
+ 
+{block:Chat}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Title}<span class="title"><a href="{permalink}">{Title}</a></span>{/block:Title}
+<ul class="chat">
+{block:Lines}
+<div class="user_{UserNumber}">
+{block:Label}
+<span class="label"><b>{Label}</b></span>
+{/block:Label}
+ 
+{Line}
+</li>
+{/block:Lines}
+</ul>
+{block:IndexPage}
+{/block:IndexPage}
+{/block:Chat}
+ 
+{block:Audio}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+<center>{AudioPlayerWhite}
+</center>
+{block:PermalinkPage}{Video-500}{/block:PermalinkPage}
+{/block:Audio}
+   
+ 
+{block:Video}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+<center>
+{block:IndexPage}
+{Video-250}
+{/block:IndexPage}
+</center>
+<center>{block:PermalinkPage}{Video-500}{/block:PermalinkPage}</center>
+{block:Video}
+ 
+{block:Answer}{block:IndexPage}<fieldset style="border:1px solid {color:post border};width:250px;"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a></legend>{/block:IndexPage}
+<div id="ask"><img src="{AskerPortraitURL-30}" width="30" align="left" style="margin-right:3px;"/></div>
+<b>{Asker}</b>: <b>{Question}</b><div style="line-height:11px;">{Answer}</div>{block:IndexPage}
+{/block:IndexPage}
+{/block:Answer}
+ 
+ 
+ 
+ 
+{block:PermalinkPage}
+{block:PostNotes}<div class="caption">
+<center>
+{block:Caption}{Caption}{/block:Caption}
+{block:Date}posted {12Hour}:{Minutes} {AmPm} on {DayOfWeek}, {Month} {DayOfMonth}, {Year}{/block:Date} {block:NoteCount}with {NoteCountWithLabel}<br>{/block:NoteCount}
+{block:RebloggedFrom}<b>source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a> | <b>via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a><br>{/block:RebloggedFrom}
+{block:HasTags}<b>tags »</b> {block:Tags}<a href="{TagURL}">#{Tag}</a> <br>{/block:Tags}{/block:hasTags}
+</center>
+{PostNotes}</div>{/block:PostNotes}
+{/block:PermalinkPage}
+ 
+</div>
+ 
+ 
+{/block:Posts}
+</div>
+</div>
+{block:IndexPage}<br>
+{block:Pagination}
+<div id="pagination">
+{block:NextPage}
+<a id="nextPage" href="{NextPage}"></a>
+{/block:NextPage}
+{block:PreviousPage}
+<a href="{PreviousPage}"></a>
+{/block:PreviousPage}
+</div>
+{/block:Pagination}
+{/block:IndexPage}
+</div>
+ </div>
+ 
+<!-- Start of StatCounter Code for Tumblr -->
+<script type="text/javascript">
+var sc_project=9078082; 
+var sc_invisible=1; 
+var sc_security="c7505335"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="counter for
+tumblr" href="http://statcounter.com/tumblr/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/9078082/0/c7505335/1/"
+alt="counter for tumblr"></a></div></noscript>
+<!-- End of StatCounter Code for Tumblr -->
+</body>
+ 
+<!-- i spent so much time and effort pls dont remove credits
+    i tried to make them as out of the way as possible
+    thank you dear -->
+
+</html>
