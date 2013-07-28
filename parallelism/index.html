@@ -1,33 +1,90 @@
 <!DOCTYPE HTML>
 <!--
 
-	Parallelism 1.0 by HTML5 UP
-	html5up.net | @n33co
+    Parallelism 1.0 by HTML5 UP
+    html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 -->
 <html>
 	<head>
-		<title>Parallelism by HTML5 UP</title>
-		<meta name="viewport" content="width=1120,user-scalable=no" />
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
+		<title>{Title}</title>
+        
+        <!-- Metadata -->
+		<meta name="description" content="{MetaDescription}" />
+        <meta name="viewport" content="width=1120,user-scalable=no" />
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="text:Facebook URL" content="" />
+        <meta name="text:Twitter URL" content="" />
+        <meta name="text:Google Plus URL" content="" />
+        
+        <!-- Includes -->        
+        <link href="{Favicon}" ref="shortcut icon">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.poptrox-2.1.js"></script>
-		<script src="js/config.js"></script>
-		<script src="js/skel.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://scripts.eohiie.ca/nothingbuthentai/js/jquery-ias.min.js"></script>
+		<script src="http://scripts.eohiie.ca/nothingbuthentai/js/jquery.poptrox-2.1.js"></script>
+		<script src="http://scripts.eohiie.ca/nothingbuthentai/js/config.js"></script>
+		<script src="http://scripts.eohiie.ca/nothingbuthentai/js/skel.min.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-desktop.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
+			<link rel="stylesheet" href="http://scripts.eohiie.ca/nothingbuthentai/css/skel-noscript.css" />
+			<link rel="stylesheet" href="http://scripts.eohiie.ca/nothingbuthentai/css/style.css" />
+			<link rel="stylesheet" href="http://scripts.eohiie.ca/nothingbuthentai/css/style-desktop.css" />
+			<link rel="stylesheet" href="http://scripts.eohiie.ca/nothingbuthentai/css/style-noscript.css" />
 		</noscript>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+        <style type="text/css">
+            .like_and_reblog_buttons {
+                list-style: none;
+            }
+
+            .like_and_reblog_buttons li {
+                float: right;
+                margin: auto;
+                padding: 0px 15px;
+                height: 20px;
+            }
+            
+            .like_and_reblog_buttons li.notes {
+                float: left;
+            }
+            
+            #pagination {
+                list-style: none;
+            }
+
+            #pagination li {
+                float: left;
+                margin: auto;
+                padding: 0px 15px;
+                height: 20px;
+            }
+        </style>
+        
+<script>
+    {block:PermalinkPage}
+    var fwd = window.location.href.split("/");
+    location.assign("http://"+fwd[2]+"/#"+fwd[4]);
+    {/block:PermalinkPage}
+    
+    $(function() {
+        if(window.location.hash){
+            $(window.location.hash).trigger('click');
+    }});
+    
+    //jQuery.ias({
+    //container : '#reel',
+    //item: '.item',
+    //pagination: '#pagination',
+    //next: '.next a',
+    //triggerPageThreshold: '1'
+});
+</script>
+                        
 	</head>
 	<body>
-
 		<div id="wrapper">
 
 			<div id="main">
@@ -39,62 +96,30 @@
 					<!-- Header Item -->
 					
 						<div id="header" class="item" data-width="400">
-							<h1>Parallelism</h1>
-							<p>A responsive portfolio site<br />
-							template by HTML5 UP</p>
+							<h1>{Title}</h1>
+							<p>{Description}</p>
 						</div>
 					
 					<!-- Thumb Items -->
-
-						<article class="item thumb" data-width="282">
-							<h2>You really got me</h2>
-							<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt=""></a>
+                        {block:Posts}
+                        {block:Text}
+                        
+                        {/block:Text}
+                        
+                        {block:Photo}
+                        <article class="item thumb" data-width="{PhotoWidth-250}">
+    						<h2><ul class="like_and_reblog_buttons">
+                            <li class="notes">{NoteCountWithLabel}</li>
+              <li class="button">{ReblogButton}</li>
+              <li class="button">{LikeButton}</li>
+          </ul></h2>
+							<a id="{postid}" class="thumbnail" href="{PhotoURL-HighRes}"><img src="{PhotoURL-250}"/></a>
 						</article>
+                        {/block:Photo}
+                        
+                        {/block:Posts}
 						
-						<article class="item thumb" data-width="384">
-							<h2>Ad Infinitum</h2>
-							<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt=""></a>
-						</article>
 						
-						<article class="item thumb" data-width="274">
-							<h2>Different.</h2>
-							<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt=""></a>
-						</article>
-						
-						<article class="item thumb" data-width="282">
-							<h2>Elysium</h2>
-							<a href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt=""></a>
-						</article>
-						
-						<article class="item thumb" data-width="476">
-							<h2>Kingdom of the Wind</h2>
-							<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt=""></a>
-						</article>
-						
-						<article class="item thumb" data-width="232">
-							<h2>The Pursuit</h2>
-							<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt=""></a>
-						</article>
-						
-						<article class="item thumb" data-width="352">
-							<h2>Boundless</h2>
-							<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt=""></a>
-						</article>
-						
-						<article class="item thumb" data-width="348">
-							<h2>The Spectators</h2>
-							<a href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt=""></a>
-						</article>
-
-					<!-- Filler Thumb Items (just for demonstration purposes) -->
-						<article class="item thumb" data-width="476"><h2>Kingdom of the Wind</h2><a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="232"><h2>The Pursuit</h2><a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="352"><h2>Boundless</h2><a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="348"><h2>The Spectators</h2><a href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="282"><h2>You really got me</h2><a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="384"><h2>Ad Infinitum</h2><a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="274"><h2>Different.</h2><a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt=""></a></article>
-						<article class="item thumb" data-width="282"><h2>Elysium</h2><a href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt=""></a></article>
 
 
 				<!-- ******************************************************************************************** -->
@@ -104,26 +129,25 @@
 		
 			<div id="footer">
 				<div class="left">
-					<p>This is <strong>Parallelism</strong>, a responsive portfolio site template by <a href="http://html5up.net/">HTML5 UP</a>. free for personal<br />
-					and commercial use under the <a href="http://html5up.net/license/">CCA 3.0</a>. The awesome demo images used in this design<br />
-					are by the amazingly talented <a href="http://ineedchemicalx.deviantart.com/">Felicia Simion</a>. Check out her work at <a href="http://ineedchemicalx.deviantart.com/">deviantART</a>.</p>
-				</div>
+					<p>Just as a warning, this theme is still developmental.</br><ul id="pagination">
+                    {block:PreviousPage}<li><a class="last" href="{PreviousPage}">Newer Posts</a></li>{/block:PreviousPage}
+                    {block:NextPage}<li><a class="next" href="{NextPage}">Older Posts</a></li>{/block:NextPage}
+                        </ul><br/></p>
+                    </div>
 				<div class="right">
 					<ul class="contact">
-						<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-						<li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
-						<li><a href="#" class="icon icon-google-plus"><span>Google+</span></a></li>
-						<li><a href="#" class="icon icon-dribbble"><span>Dribbble</span></a></li>
-						<li><a href="#" class="icon icon-pinterest"><span>Pinterest</span></a></li>
-						<li><a href="#" class="icon icon-envelope-alt"><span>Email</span></a></li>
+                    {block:AskEnabled}<li><a href="/ask" class="icon icon-envelope-alt"><span>{AskLabel}</span></a></li>{/block:AskEnabled}
+						{block:SubmissionsEnabled}<li><a href="/submit" class="icon icon-upload"><span>{SubmitLabel}</span></a></li>{/block:SubmissionsEnabled}
+                        {block:IfFacebookURL}<li><a href="{text:Facebook URL}" class="icon icon-facebook"><span>Facebook</span></a></li>{/block:IfFacebookURL}
+                        {block:IfTwitterURL}<li><a href="{text:Twitter URL}" class="icon icon-twitter"><span>Twitter</span></a></li>{/block:IfTwitterURL}
+                        {block:IfGooglePlusURL}<li><a href="{text:Google Plus URL}" class="icon icon-google-plus"><span>Google Plus</span></a></li>{/block:IfGooglePlusURL}
+						
 					</ul>
 					<div id="copyright">
-						&copy; Untitled. Design: <a href="http://html5up.net/">HTML5 UP</a>
+						&copy; 2013 Aaesos. Design by <a href="http://n33.co/">n33</a>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 	</body>
 </html>
