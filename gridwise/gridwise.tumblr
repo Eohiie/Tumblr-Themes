@@ -1,3 +1,4 @@
+<!DOCTYPE html />
 <html>
 <head><script type="text/javascript"
 src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
@@ -267,7 +268,7 @@ $content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);
 {block:Text}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};">{/block:IndexPage}{block:Title}<span class="title"><a href="{permalink}">{Title}</a></span>{/block:Title}<span class="entrytext">{Body}</span>
 {/block:Text}
  
-{block:Link}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Link}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
 <a href="{URL}" class="title">? {Name}</a>
 {block:Description}{Description}{/block:Description}{block:IndexPage}
 {/block:IndexPage}
@@ -276,29 +277,29 @@ $content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);
  
 {block:Photo}
 {block:IndexPage}
-<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="image/{PostID}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a> 
+<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{Permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a> 
 </legend>
 {/block:IndexPage}
 {block:IndexPage}{LinkOpenTag}<div class="photo"><a href="image/{PostID}" {block:ifImagesNewTab}target="_blank"{/block:ifImagesNewTab}><img class="photo" src="{PhotoURL-400}" alt="{PhotoAlt}" width="250px;"/></a></div>{LinkCloseTag}{/block:IndexPage}
-{block:PermalinkPage}<a href="{Permalink}"><img class="photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" style="position:fixed; height:auto;" width="450px"/></a>{/block:PermalinkPage}
+{block:PermalinkPage}<center><a href="/image/{PostID}"><img class="photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" style="margin:auto; height:auto;" width="450px"/></a></center>{/block:PermalinkPage}
 {/block:Photo}
  
-{block:Photoset}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Photoset}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
 {block:IndexPage}<center>{Photoset-250}</center>{/block:IndexPage}
 <center>{block:PermalinkPage}<div style="position:fixed;width:517px;max-height:520px;overflow:scroll;">{Photoset-500}</div>{/block:PermalinkPage}</center>
 {/block:Photoset}
  
-{block:Quote}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Quote}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
                         <i>"{Quote}"</i>
                         {block:Source}
-                            <div align="right">— {Source}</div>
+                            <div align="right">â€” {Source}</div>
                         {/block:Source}
  
                 {/block:Quote}
  
  
  
-{block:Chat}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Chat}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
 {block:Title}<span class="title"><a href="{permalink}">{Title}</a></span>{/block:Title}
 <ul class="chat">
 {block:Lines}
@@ -315,14 +316,14 @@ $content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);
 {/block:IndexPage}
 {/block:Chat}
  
-{block:Audio}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Audio}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
 <center>{AudioPlayerWhite}
 </center>
 {block:PermalinkPage}{Video-500}{/block:PermalinkPage}
 {/block:Audio}
    
  
-{block:Video}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> — <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
+{block:Video}{block:IndexPage}<fieldset style="width:250px;border:1px solid {color:post border};"><legend style="text-align:right;"><a href="{permalink}">{notecountwithlabel}</a> â€” <a href="{reblogurl}">reblog</a></legend>{/block:IndexPage}
 <center>
 {block:IndexPage}
 {Video-250}
@@ -346,7 +347,7 @@ $content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);
 {block:Caption}{Caption}{/block:Caption}
 {block:Date}posted {12Hour}:{Minutes} {AmPm} on {DayOfWeek}, {Month} {DayOfMonth}, {Year}{/block:Date} {block:NoteCount}with {NoteCountWithLabel}<br>{/block:NoteCount}
 {block:RebloggedFrom}<b>source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a> | <b>via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a><br>{/block:RebloggedFrom}
-{block:HasTags}<b>tags »</b> {block:Tags}<a href="{TagURL}">#{Tag}</a> <br>{/block:Tags}{/block:hasTags}
+{block:HasTags}<b>tags Â»</b> {block:Tags}<a href="{TagURL}">#{Tag}</a> <br>{/block:Tags}{/block:hasTags}
 </center>
 {PostNotes}</div>{/block:PostNotes}
 {/block:PermalinkPage}
